@@ -2,15 +2,24 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.easymove.easymove">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
     <application
         android:name=".App"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_easymove"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/ic_easymove"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".auth.login.LoginActivity">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="${usesCleartextTraffic}">
+        <activity
+            android:name=".auth.AuthActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.easymove.easymove.shared.views.MultiListenerMotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/auth_motion_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_100"
+    android:paddingHorizontal="@dimen/spacing_larger"
+    android:paddingTop="@dimen/spacing_larger"
+    app:layoutDescription="@xml/fragment_auth_scene"
+    tools:context=".auth.AuthFragment">
+
+    <ImageView
+        android:id="@+id/auth_logo"
+        android:layout_width="42dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ic_easymove"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTag="auth__alpha"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/auth_version_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed"
+        android:textAllCaps="true"
+        app:layout_constraintBottom_toBottomOf="@id/auth_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTag="auth__alpha"
+        app:layout_constraintTop_toTopOf="@id/auth_logo"
+        tools:text="V1.0.0" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/auth_title_guideline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".3" />
+
+    <TextView
+        android:id="@+id/auth_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="@string/app_name"
+        android:textColor="@color/black_500"
+        android:textSize="42sp"
+        app:layout_constraintBottom_toBottomOf="@id/auth_title_guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTag="auth__alpha"
+        app:layout_constraintTop_toTopOf="@id/auth_title_guideline" />
+
+    <TextView
+        android:id="@+id/auth_subtitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/montserrat_medium"
+        android:lineSpacingExtra="4dp"
+        android:text="@string/auth__subtitle"
+        android:textColor="@color/gray_400"
+        android:textSize="@dimen/font_normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTag="auth__alpha"
+        app:layout_constraintTop_toBottomOf="@id/auth_title"
+        app:layout_constraintWidth_percent=".6" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/auth_login_button"
+        style="@style/Button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/auth__login"
+        app:backgroundTint="@color/black_500"
+        app:layout_constraintBottom_toTopOf="@id/auth_register_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTag="auth__alpha" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/auth_register_button"
+        style="@style/Button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/blue_300"
+        android:text="@string/auth__register"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTag="auth__alpha" />
+
+</com.easymove.easymove.shared.views.MultiListenerMotionLayout>
