@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">easymove-android</string>
+    <string name="app_name">EasyMove</string>
+    <string name="auth__login">Connecte-toi</string>
+    <string name="auth__register">Créer un compte</string>
+    <string name="auth__subtitle">Gérer tous vos déplacements depuis un seul support.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
