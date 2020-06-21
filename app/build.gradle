@@ -45,7 +45,7 @@ android {
 dependencies {
     def lifecycle_version = "2.2.0"
     def arch_version = "2.1.0"
-    def koin_version = "2.1.4"
+    def koin_version = "2.1.6"
 
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
@@ -65,8 +65,9 @@ dependencies {
     kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
     // Koin (Dependency Injection)
     implementation "org.koin:koin-android:$koin_version"
-    implementation "org.koin:koin-android-scope:$koin_version"
-    implementation "org.koin:koin-android-viewmodel:$koin_version"
+    implementation "org.koin:koin-androidx-scope:$koin_version"
+    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
+    implementation "org.koin:koin-androidx-fragment:$koin_version"
     // MotionLayout
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta4'
     // Cardview

@@ -5,6 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.easymove.easymove.auth.AuthRepository
+import com.easymove.easymove.shared.Event
+import com.easymove.easymove.shared.dtos.ErrorResponse
 import com.haroldadmin.cnradapter.NetworkResponse
 import kotlinx.coroutines.launch
 
@@ -16,6 +18,9 @@ class LoginViewModel(
     val password = MutableLiveData<String>()
     val isFormValid = loginValidator.initialize(email, password)
 
+    val onLoginSuccess = MutableLiveData<Event<LoginResponseDTO>>()
+    val onLoginError = MutableLiveData<Event<ErrorResponse?>>()
+
     fun onLoginClick(view: View) {
         viewModelScope.launch { login() }
     }
@@ -25,10 +30,10 @@ class LoginViewModel(
 
         when (val response = authRepository.login(body)) {
             is NetworkResponse.Success -> {
-                println("§ $response")
+                onLoginSuccess.value = Event(response.body)
             }
             is NetworkResponse.ServerError -> {
-                println("§ $response")
+                onLoginError.value = Event(response.body)
             }
         }
     }

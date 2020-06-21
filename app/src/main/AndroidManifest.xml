@@ -17,7 +17,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="${usesCleartextTraffic}">
         <activity
-            android:name=".auth.AuthActivity"
+            android:name=".MainActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
@@ -27,5 +27,5 @@
             </intent-filter>
         </activity>
     </application>
-
+    
 </manifest>

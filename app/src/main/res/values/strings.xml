@@ -3,6 +3,7 @@
     <string name="auth__login">Connecte-toi</string>
     <string name="auth__register">Créer un compte</string>
     <string name="auth__subtitle">Gérer tous vos déplacements depuis un seul support.</string>
+    <string name="auth__login_error">Une erreur est survenue lors de la connexion.</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

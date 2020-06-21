@@ -12,7 +12,6 @@ import com.easymove.easymove.R
 import com.easymove.easymove.shared.extensions.awaitTransitionComplete
 import com.easymove.easymove.shared.extensions.setOnSingleClickListener
 import kotlinx.android.synthetic.main.fragment_auth.*
-import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.launch
 
 class AuthFragment : Fragment() {
@@ -33,13 +32,9 @@ class AuthFragment : Fragment() {
 
         auth_login_button.setOnSingleClickListener {
             viewLifecycleOwner.lifecycleScope.launch {
-                try {
-                    auth_motion_layout.transitionToState(R.id.auth_fade_in_start)
-                    auth_motion_layout.awaitTransitionComplete(R.id.auth_fade_in_start)
-                    findNavController().navigate(R.id.action_authFragment_to_loginFragment)
-                } catch (e: CancellationException) {
-                    e.printStackTrace()
-                }
+                auth_motion_layout.transitionToState(R.id.auth_fade_in_start)
+                auth_motion_layout.awaitTransitionComplete(R.id.auth_fade_in_start)
+                findNavController().navigate(R.id.action_authFragment_to_loginFragment)
             }
         }
     }
