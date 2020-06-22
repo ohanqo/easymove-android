@@ -5,8 +5,10 @@
     <string name="auth__subtitle">Gérer tous vos déplacements depuis un seul support.</string>
     <string name="auth__login_error">Une erreur est survenue lors de la connexion.</string>
 
-    <string name="history__permission_denied_title">Permissions non accordées.</string>
-    <string name="history__permission_denied">Vous devez autoriser les permissions pour pouvoir utiliser EasyMove.</string>
+    <string name="bluetooth__not_supported_alert_title">Bluetooth non supporté.</string>
+    <string name="bluetooth__not_supported_alert_subtitle">Cet appareil ne dispose pas de la technologie Bluetooth.</string>
+    <string name="bluetooth__permission_denied_alert_title">Permissions non accordées.</string>
+    <string name="bluetooth__permission_denied_alert_subtitle">Vous devez autoriser les permissions pour pouvoir utiliser EasyMove.</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

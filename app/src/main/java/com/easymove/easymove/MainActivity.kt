@@ -1,6 +1,7 @@
 package com.easymove.easymove
 
 import android.Manifest
+import android.bluetooth.BluetoothAdapter
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
@@ -18,6 +19,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        if (!doesDeviceSupportBluetooth()) {
+            showFailureDialog(
+                R.string.bluetooth__not_supported_alert_title,
+                R.string.bluetooth__not_supported_alert_subtitle
+            )
+        }
+
         if (!hasGrantedPermission()) {
             askForFineLocationPermission()
             askForBackgroundLocationPermission()
@@ -33,16 +41,10 @@ class MainActivity : AppCompatActivity() {
             grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED;
 
         if (!hasGrantedPermission) {
-            AlertDialog.Builder(this@MainActivity).apply {
-                setTitle(getString(R.string.history__permission_denied_title))
-                setMessage(getString(R.string.history__permission_denied))
-                setPositiveButton(android.R.string.ok, null)
-                setOnDismissListener {
-                    finish()
-                    exitProcess(0)
-                }
-                show()
-            }
+            showFailureDialog(
+                R.string.bluetooth__permission_denied_alert_title,
+                R.string.bluetooth__permission_denied_alert_subtitle
+            )
         }
     }
 
@@ -78,5 +80,22 @@ class MainActivity : AppCompatActivity() {
         }
 
         return locationPermission == PackageManager.PERMISSION_GRANTED
+    }
+
+    private fun doesDeviceSupportBluetooth(): Boolean {
+        return BluetoothAdapter.getDefaultAdapter() != null
+    }
+
+    private fun showFailureDialog(titleId: Int, subtitleId: Int) {
+        AlertDialog.Builder(this).apply {
+            setTitle(getString(titleId))
+            setMessage(getString(subtitleId))
+            setPositiveButton(android.R.string.ok, null)
+            setOnDismissListener {
+                finish()
+                exitProcess(0)
+            }
+            show()
+        }
     }
 }
