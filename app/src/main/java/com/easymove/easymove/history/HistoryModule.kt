@@ -7,7 +7,7 @@ import retrofit2.Retrofit
 
 val historyModule = module {
     single { get<Retrofit>().create(HistoryService::class.java) }
-    single { HistoryManager(get()) }
+    factory { HistoryManager(get()) }
     viewModel { HistoryViewModel() }
     fragment { HistoryFragment() }
 }
