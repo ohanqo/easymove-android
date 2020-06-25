@@ -9,7 +9,12 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 val networkModule = module {
     single {
+        AuthTokenInterceptor(get())
+    }
+
+    single {
         OkHttpClient.Builder()
+            .addInterceptor(get<AuthTokenInterceptor>())
             .build()
     }
 
