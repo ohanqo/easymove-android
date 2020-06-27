@@ -11,10 +11,11 @@ import com.easymove.easymove.BuildConfig
 import com.easymove.easymove.R
 import com.easymove.easymove.shared.extensions.awaitTransitionComplete
 import com.easymove.easymove.shared.extensions.setOnSingleClickListener
+import com.easymove.easymove.shared.utils.PrefsUtils
 import kotlinx.android.synthetic.main.fragment_auth.*
 import kotlinx.coroutines.launch
 
-class AuthFragment : Fragment() {
+class AuthFragment(private val prefsUtils: PrefsUtils) : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -25,6 +26,11 @@ class AuthFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // TODO: Move to splashscreen
+        if (prefsUtils.authToken != null) {
+            findNavController().navigate(R.id.action_authFragment_to_historyFragment)
+        }
 
         auth_version_code.text = BuildConfig.VERSION_NAME
 

@@ -11,6 +11,7 @@ import androidx.core.app.NotificationCompat
 import com.easymove.easymove.auth.authModule
 import com.easymove.easymove.history.HistoryManager
 import com.easymove.easymove.history.historyModule
+import com.easymove.easymove.shared.modules.database.databaseModule
 import com.easymove.easymove.shared.modules.network.ConnectivityObserver
 import com.easymove.easymove.shared.modules.network.networkModule
 import com.easymove.easymove.shared.utils.utilsModule
@@ -37,6 +38,7 @@ class App : Application(), BeaconConsumer, BootstrapNotifier, RangeNotifier {
             androidContext(this@App)
             fragmentFactory()
             modules(utilsModule)
+            modules(databaseModule)
             modules(networkModule)
             modules(authModule)
             modules(historyModule)
@@ -77,7 +79,7 @@ class App : Application(), BeaconConsumer, BootstrapNotifier, RangeNotifier {
         beaconManager.bind(this)
 
         val region = Region(
-            "Gare Montparnasse",
+            "Austerlitz",
             null, null, null
         )
         RegionBootstrap(this, region)

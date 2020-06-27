@@ -4,10 +4,9 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-data class History(
+data class HistoryRemoteKeys(
     @PrimaryKey
-    val id: Int,
-    val price: String,
-    val departureStation: String,
-    val createdAt: String
+    val id: Int = 1,
+    val prevKey: Int?,
+    val nextKey: Int?
 )

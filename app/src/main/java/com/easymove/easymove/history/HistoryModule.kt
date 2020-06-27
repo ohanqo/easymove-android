@@ -8,6 +8,8 @@ import retrofit2.Retrofit
 val historyModule = module {
     single { get<Retrofit>().create(HistoryService::class.java) }
     factory { HistoryManager(get()) }
-    viewModel { HistoryViewModel() }
+    single { HistoryPagingMediator(get(), get(), get(), get()) }
+    single { HistoryRepository(get(), get()) }
+    viewModel { HistoryViewModel(get()) }
     fragment { HistoryFragment() }
 }

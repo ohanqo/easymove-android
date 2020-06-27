@@ -13,6 +13,6 @@ val authModule = module {
     single { AuthRepository(get()) }
     single { LoginValidator() }
     viewModel { LoginViewModel(get(), get()) }
-    fragment { AuthFragment() }
+    fragment { AuthFragment(get()) }
     fragment { LoginFragment(get(), get()) }
 }
