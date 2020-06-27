@@ -20,15 +20,13 @@ class AuthFragment(private val prefsUtils: PrefsUtils) : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_auth, container, false)
-    }
+    ): View? = inflater.inflate(R.layout.fragment_auth, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         // TODO: Move to splashscreen
-        if (prefsUtils.authToken != null) {
+        if (!prefsUtils.authToken.isNullOrBlank()) {
             findNavController().navigate(R.id.action_authFragment_to_historyFragment)
         }
 
@@ -41,6 +39,14 @@ class AuthFragment(private val prefsUtils: PrefsUtils) : Fragment() {
                 auth_motion_layout.transitionToState(R.id.auth_fade_in_start)
                 auth_motion_layout.awaitTransitionComplete(R.id.auth_fade_in_start)
                 findNavController().navigate(R.id.action_authFragment_to_loginFragment)
+            }
+        }
+
+        auth_register_button.setOnSingleClickListener {
+            viewLifecycleOwner.lifecycleScope.launch {
+                auth_motion_layout.transitionToState(R.id.auth_fade_in_start)
+                auth_motion_layout.awaitTransitionComplete(R.id.auth_fade_in_start)
+                findNavController().navigate(R.id.action_authFragment_to_registerFragment)
             }
         }
     }

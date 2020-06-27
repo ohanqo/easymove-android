@@ -21,7 +21,7 @@ class HistoryPagingMediator(
     private val historyDao: HistoryDao,
     private val remoteKeysDao: HistoryRemoteKeysDao
 ) : RemoteMediator<Int, History>() {
-
+    
     override suspend fun load(
         loadType: LoadType,
         state: PagingState<Int, History>

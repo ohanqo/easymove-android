@@ -5,7 +5,7 @@
 
         <variable
             name="viewModel"
-            type="com.easymove.easymove.auth.login.LoginViewModel" />
+            type="com.easymove.easymove.auth.register.RegisterViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -19,24 +19,44 @@
             android:layout_height="100dp"
             android:layout_marginBottom="32dp"
             android:src="@drawable/ic_easymove"
-            app:layout_constraintBottom_toTopOf="@id/login_email_field"
+            app:layout_constraintBottom_toTopOf="@id/register_username_field"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/login_email_field"
+            android:id="@+id/register_username_field"
+            style="@style/TextInput.Rounded"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginBottom="16dp"
+            android:hint="@string/username"
+            app:layout_constraintBottom_toTopOf="@id/register_email_field"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/register_username_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@={viewModel.username}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/register_email_field"
             style="@style/TextInput.Rounded"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="32dp"
             android:layout_marginBottom="16dp"
             android:hint="@string/mail"
-            app:layout_constraintBottom_toTopOf="@id/login_password_field"
+            app:layout_constraintBottom_toTopOf="@id/register_password_field"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/login_email_edit_text"
+                android:id="@+id/register_email_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@={viewModel.email}" />
@@ -44,19 +64,19 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/login_password_field"
+            android:id="@+id/register_password_field"
             style="@style/TextInput.Password.Rounded"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="32dp"
             android:layout_marginBottom="32dp"
             android:hint="@string/password"
-            app:layout_constraintBottom_toTopOf="@id/login_button"
+            app:layout_constraintBottom_toTopOf="@id/register_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/login_password_edit_text"
+                android:id="@+id/register_password_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
@@ -65,7 +85,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/login_button"
+            android:id="@+id/register_button"
             style="@style/Button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -74,8 +94,8 @@
             android:alpha="@{viewModel.isFormValid ? 1f : 0.2f}"
             android:backgroundTint="@color/blue_300"
             android:clickable="@{viewModel.isFormValid}"
-            android:onClick="@{viewModel::onLoginClick}"
-            android:text="@string/login"
+            android:onClick="@{viewModel::onRegisterClick}"
+            android:text="@string/register"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

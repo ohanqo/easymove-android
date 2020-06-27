@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.easymove.easymove.R
+import com.easymove.easymove.shared.extensions.setIsVisible
 import kotlinx.android.synthetic.main.fragment_history.*
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -30,6 +31,10 @@ class HistoryFragment : Fragment() {
         lifecycleScope.launch {
             model.historyItems.collect {
                 adapter.submitData(it)
+                
+                val hasData = adapter.itemCount > 0
+                history_list.setIsVisible(hasData)
+                history_no_data.setIsVisible(!hasData)
             }
         }
     }

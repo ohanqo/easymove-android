@@ -15,3 +15,20 @@ fun View.setOnSingleClickListener(debounceTime: Long = 200L, action: () -> Unit)
         }
     })
 }
+
+fun View.visible() {
+    visibility = View.VISIBLE
+}
+
+fun View.invisible() {
+    visibility = View.INVISIBLE
+}
+
+fun View.gone() {
+    visibility = View.GONE
+}
+
+fun View.setIsVisible(isVisible: Boolean) {
+    if (isVisible) visible() else gone()
+}
+
