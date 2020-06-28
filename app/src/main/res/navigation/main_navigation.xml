@@ -67,5 +67,11 @@
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.easymove.easymove.user.ProfileFragment"
-        android:label="ProfileFragment" />
+        android:label="ProfileFragment">
+        <action
+            android:id="@+id/action_profileFragment_to_onboardingFragment"
+            app:destination="@id/onboardingFragment"
+            app:popUpTo="@id/profileFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

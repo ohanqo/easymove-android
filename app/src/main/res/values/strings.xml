@@ -38,6 +38,9 @@
     <string name="consent">Je consens</string>
     <string name="tickets">Tickets</string>
     <string name="home">Accueil</string>
+    <string name="transport_titles">Titres de transport</string>
     <string name="profile">Profile</string>
+    <string name="logout">Déconnexion</string>
+    <string name="logout_message">Êtes-vous sûr de vouloir vous déconnecter ?</string>
 
 </resources>

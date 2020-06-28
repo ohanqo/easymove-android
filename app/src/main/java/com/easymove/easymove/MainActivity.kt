@@ -8,10 +8,14 @@ import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
 import androidx.navigation.ui.setupWithNavController
 import com.easymove.easymove.shared.Constants
+import com.easymove.easymove.shared.extensions.awaitTransitionComplete
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.koin.androidx.fragment.android.setupKoinFragmentFactory
 import kotlin.system.exitProcess
 
@@ -47,7 +51,13 @@ class MainActivity : AppCompatActivity() {
 
         navigation.addOnDestinationChangedListener { _, destination, _ ->
             if (destination.label == "fragment_history") {
-                activity_main_motion.transitionToState(R.id.bottom_navigation_visible)
+                lifecycleScope.launch {
+                    delay(500)
+                    activity_main_motion.transitionToState(R.id.bottom_navigation_visible)
+                    activity_main_motion.awaitTransitionComplete(R.id.bottom_navigation_visible)
+                }
+            } else if (destination.label == "fragment_onboarding") {
+                activity_main_motion.transitionToState(R.id.bottom_navigation_hidden)
             }
         }
     }

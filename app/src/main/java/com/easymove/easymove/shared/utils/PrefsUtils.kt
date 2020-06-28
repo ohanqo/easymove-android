@@ -27,4 +27,9 @@ class PrefsUtils(context: Context) {
         set(value) = prefs.edit().putBoolean(HAS_ACCEPTED_POLITICS, value).apply()
 
     fun isAuthenticated(): Boolean = !authToken.isNullOrBlank()
+
+    fun clearPreferences() {
+        authToken = null
+        hasAcceptedPolitics = false
+    }
 }

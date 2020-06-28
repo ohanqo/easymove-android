@@ -19,6 +19,8 @@ import com.easymove.easymove.shared.modules.network.ConnectivityObserver
 import com.easymove.easymove.shared.modules.network.networkModule
 import com.easymove.easymove.shared.utils.PrefsUtils
 import com.easymove.easymove.shared.utils.utilsModule
+import com.easymove.easymove.ticket.ticketModule
+import com.easymove.easymove.user.userModule
 import org.altbeacon.beacon.*
 import org.altbeacon.beacon.startup.BootstrapNotifier
 import org.altbeacon.beacon.startup.RegionBootstrap
@@ -48,6 +50,8 @@ class App : Application(), BeaconConsumer, BootstrapNotifier, RangeNotifier {
             modules(onboardingModule)
             modules(authModule)
             modules(historyModule)
+            modules(ticketModule)
+            modules(userModule)
         }
 
         connectivityObserver.listenToConnectivityChange()
@@ -92,6 +96,10 @@ class App : Application(), BeaconConsumer, BootstrapNotifier, RangeNotifier {
     }
 
     fun startForegroundService() {
+        if (beaconManager.isAnyConsumerBound) {
+            return
+        }
+
         val pendingIntent = PendingIntent.getActivity(
             this, 0,
             Intent(this, this::class.java), PendingIntent.FLAG_UPDATE_CURRENT

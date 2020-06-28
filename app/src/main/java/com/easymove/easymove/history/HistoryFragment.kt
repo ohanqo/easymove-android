@@ -31,9 +31,11 @@ class HistoryFragment : Fragment() {
             model.historyItems.collect {
                 adapter.submitData(it)
 
-                val hasData = adapter.itemCount > 0
-                history_list.setIsVisible(hasData)
-                history_no_data.setIsVisible(!hasData)
+                if (history_list != null && history_no_data != null) {
+                    val hasData = adapter.itemCount > 0
+                    history_list.setIsVisible(hasData)
+                    history_no_data.setIsVisible(!hasData)
+                }
             }
         }
     }
