@@ -20,10 +20,21 @@
     <string name="history__price">Coût</string>
     <string name="history__no_data">Aucune donnée concernant vos passages…</string>
 
+    <string name="onboarding_button_next">Suivant</string>
+    <string name="onboarding_queue">Évitez les files d\'attente en passant aux bornes sans avoir besoin de sortir votre téléphone grâce à la technologie Bluetooth.</string>
+    <string name="onboarding_sync">Acheter ou recharger vos titres de transport via notre application/site web. Visualisez facilement l\'historique de vos déplacements.</string>
+    <string name="onboarding_gdpr">Nous collectons uniquement les données indispensables à la bonne exécution de notre service.</string>
+    <string name="onboarding__confidentiality">En validant, tu approuves et reconnais la politique de collecte de données.</string>
+    <string name="onboarding__dialog_politic">Les informations recueillies sont enregistrées dans un fichier informatisé par EasyMove pour obtenir un ensemble de fonctionnalités nécessitant ces données. La base légale du traitement est obtenue lors de l\'inscription au service EasyMove.\n\nLes données collectées seront communiquées aux seuls destinataires suivants: EasyMove.\n\nLes données sont conservées pendant 2 ans.\n\nVous pouvez accéder aux données vous concernant, les rectifier, demander leur effacement ou exercer votre droit à la limitation du traitement de vos données.\n\nConsultez le site cnil.fr pour plus d’informations sur vos droits.\n\nPour exercer ces droits ou pour toute question sur le traitement de vos données dans ce dispositif, vous pouvez contacter support@easymove.io\n\nSi vous estimez, après nous avoir contactés, que vos droits « Informatique et Libertés » ne sont pas respectés, vous pouvez adresser une réclamation à la CNIL.</string>
+
     <string name="username">Prénom</string>
     <string name="mail">Email</string>
     <string name="password">Mot de passe</string>
     <string name="register">Inscription</string>
     <string name="login">Connexion</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="collect_politic">Politique de collecte</string>
+    <string name="consent">Je consens</string>
 
 </resources>

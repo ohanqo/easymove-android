@@ -11,6 +11,7 @@ import androidx.core.app.NotificationCompat
 import com.easymove.easymove.auth.authModule
 import com.easymove.easymove.history.HistoryManager
 import com.easymove.easymove.history.historyModule
+import com.easymove.easymove.onboarding.onboardingModule
 import com.easymove.easymove.shared.modules.database.databaseModule
 import com.easymove.easymove.shared.modules.network.ConnectivityObserver
 import com.easymove.easymove.shared.modules.network.networkModule
@@ -40,6 +41,7 @@ class App : Application(), BeaconConsumer, BootstrapNotifier, RangeNotifier {
             modules(utilsModule)
             modules(databaseModule)
             modules(networkModule)
+            modules(onboardingModule)
             modules(authModule)
             modules(historyModule)
         }

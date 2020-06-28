@@ -15,6 +15,7 @@
 
     <color name="white_200">#EAECF4</color>
 
+    <color name="black_100">#77000000</color>
     <color name="black_500">#010101</color>
 
     <color name="red_500">#F56565</color>

@@ -18,11 +18,10 @@ class HistoryFragment : Fragment() {
     private val model: HistoryViewModel by viewModel()
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_history, container, false)
-    }
+    ): View? = inflater.inflate(R.layout.fragment_history, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -31,7 +30,7 @@ class HistoryFragment : Fragment() {
         lifecycleScope.launch {
             model.historyItems.collect {
                 adapter.submitData(it)
-                
+
                 val hasData = adapter.itemCount > 0
                 history_list.setIsVisible(hasData)
                 history_no_data.setIsVisible(!hasData)
