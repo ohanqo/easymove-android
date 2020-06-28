@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.easymove.easymove.App
 import com.easymove.easymove.R
 import com.easymove.easymove.databinding.FragmentLoginBinding
 import com.easymove.easymove.shared.DataBindingFragment
@@ -36,6 +37,7 @@ class LoginFragment(
 
     private fun onLoginSuccess(loginResponseDTO: LoginResponseDTO) {
         prefsUtils.authToken = loginResponseDTO.token
+        (context?.applicationContext as App?)?.startForegroundService()
         findNavController().navigate(R.id.action_loginFragment_to_historyFragment)
     }
 

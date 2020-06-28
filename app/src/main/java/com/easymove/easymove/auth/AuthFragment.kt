@@ -24,8 +24,8 @@ class AuthFragment(private val prefsUtils: PrefsUtils) : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        
-        if (!prefsUtils.authToken.isNullOrBlank()) {
+
+        if (prefsUtils.isAuthenticated()) {
             findNavController().navigate(R.id.action_authFragment_to_historyFragment)
         }
 
