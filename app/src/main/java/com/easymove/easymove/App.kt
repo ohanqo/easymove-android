@@ -97,7 +97,7 @@ class App : Application(), BeaconConsumer, BootstrapNotifier, RangeNotifier {
             Intent(this, this::class.java), PendingIntent.FLAG_UPDATE_CURRENT
         )
         val notification = NotificationCompat.Builder(this, BuildConfig.APPLICATION_ID)
-            .setSmallIcon(R.drawable.easymove)
+            .setSmallIcon(R.drawable.easymove_white)
             .setContentTitle("En cours d'exécution")
             .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setContentIntent(pendingIntent)
@@ -122,7 +122,7 @@ class App : Application(), BeaconConsumer, BootstrapNotifier, RangeNotifier {
             backgroundScanPeriod = 1100
             bind(this@App)
         }
-        
+
         val region = Region(
             "Austerlitz",
             null, null, null

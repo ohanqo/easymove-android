@@ -8,7 +8,10 @@ import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.navigation.Navigation
+import androidx.navigation.ui.setupWithNavController
 import com.easymove.easymove.shared.Constants
+import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.androidx.fragment.android.setupKoinFragmentFactory
 import kotlin.system.exitProcess
 
@@ -29,6 +32,23 @@ class MainActivity : AppCompatActivity() {
         if (!hasGrantedPermission()) {
             askForFineLocationPermission()
             askForBackgroundLocationPermission()
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        val navigation = Navigation.findNavController(
+            this,
+            R.id.main_nav_host_fragment
+        )
+
+        main_bottom_navigation_view.setupWithNavController(navigation)
+
+        navigation.addOnDestinationChangedListener { _, destination, _ ->
+            if (destination.label == "fragment_history") {
+                activity_main_motion.transitionToState(R.id.bottom_navigation_visible)
+            }
         }
     }
 
