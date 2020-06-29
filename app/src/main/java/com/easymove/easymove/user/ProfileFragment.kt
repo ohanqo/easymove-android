@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.easymove.easymove.App
 import com.easymove.easymove.R
 import com.easymove.easymove.shared.extensions.setOnSingleClickListener
 import com.easymove.easymove.shared.modules.database.AppDatabase
@@ -48,6 +49,7 @@ class ProfileFragment(
         GlobalScope.launch {
             database.clearAllTables()
             prefsUtils.clearPreferences()
+            (context?.applicationContext as App?)?.stopForegroundService()
             findNavController().navigate(R.id.action_profileFragment_to_onboardingFragment)
         }
     }

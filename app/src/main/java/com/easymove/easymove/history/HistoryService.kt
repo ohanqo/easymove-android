@@ -16,6 +16,6 @@ interface HistoryService {
 
     @POST("history")
     suspend fun create(
-        @Body historyList: List<CreateHistoryDTO>
+        @Body historyList: List<HistoryToBeUploaded>
     ): NetworkResponse<List<History>, ErrorResponse>
 }

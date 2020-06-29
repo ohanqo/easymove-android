@@ -19,6 +19,7 @@ android {
 
     kotlinOptions {
         freeCompilerArgs += ["-Xopt-in=kotlin.RequiresOptIn"]
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 
     buildTypes {
@@ -52,6 +53,7 @@ dependencies {
     def koin_version = "2.1.6"
     def room_version = "2.3.0-alpha01"
     def paging_version = "3.0.0-alpha02"
+    def work_version = "2.3.4"
 
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
@@ -68,7 +70,7 @@ dependencies {
     // Saved state module for ViewModel
     implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"
     // Annotation processor
-    kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
     // Koin (Dependency Injection)
     implementation "org.koin:koin-android:$koin_version"
     implementation "org.koin:koin-androidx-scope:$koin_version"
@@ -99,6 +101,8 @@ dependencies {
     debugImplementation 'com.amitshekhar.android:debug-db:1.0.6'
     // Paging Library
     implementation "androidx.paging:paging-runtime:$paging_version"
+    // Worker
+    implementation "androidx.work:work-runtime-ktx:$work_version"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'

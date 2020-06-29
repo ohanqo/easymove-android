@@ -34,6 +34,7 @@ import org.koin.core.context.startKoin
 class App : Application(), BeaconConsumer, BootstrapNotifier, RangeNotifier {
 
     private lateinit var beaconManager: BeaconManager
+    private var regionBootstrap: RegionBootstrap? = null
     private var historyManager: HistoryManager? = null
     private val connectivityObserver: ConnectivityObserver by inject()
     private val prefsUtils: PrefsUtils by inject()
@@ -135,6 +136,17 @@ class App : Application(), BeaconConsumer, BootstrapNotifier, RangeNotifier {
             "Austerlitz",
             null, null, null
         )
-        RegionBootstrap(this, region)
+        regionBootstrap = RegionBootstrap(this, region)
+    }
+
+    fun stopForegroundService() {
+        if (beaconManager.isAnyConsumerBound) {
+            Log.d(LOGGER_TAG, "stopForegroundService")
+            historyManager = null
+            regionBootstrap?.disable()
+            regionBootstrap = null
+            beaconManager.unbind(this)
+            beaconManager.disableForegroundServiceScanning()
+        }
     }
 }

@@ -23,7 +23,7 @@
             android:fontFamily="@font/montserrat_bold"
             android:text="@string/collect_politic"
             android:textColor="@color/blue_400"
-            android:textSize="@dimen/font_large"
+            android:textSize="@dimen/font_larger"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
